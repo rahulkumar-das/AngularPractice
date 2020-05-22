@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Angular-JS</title>
+        <style type="text/css">
+        .ng-invalid .ng-dirty{
+            border-color: red;
+
+        }
+        .ng-valid .ng-dirty{
+            border-color: green;
+        }
+
+        </style>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js">  </script>
+    <script type="text/javascript" src="app.js"></script>
+
+    </head>
+
+    
+    <body ng-app="myApp">
+        
+       
+        <div ng-controller='myController'>
+            <h2>Reviews</h2>
+            <div ng-repeat="review in reviews">
+                <div style="background-color: bisque;">
+                    <p>{{review.comment}}</p>
+                    <p>{{review.by}}</p>
+
+
+                </div>
+
+            </div>
+            <form name="reviewForm" ng-submit=" reviewForm.$valid && addReview()" novalidate>
+                <div style="background-color: bisque;">
+                <p>{{form.comment}}</p>
+                <p>{{form.by}}</p>
+                </div>
+                <label>Comment</label> <br/>
+                <textarea ng-model="form.comment" required></textarea><br/>
+                <label>Author</label> <br/>
+                <input type="email" ng-model="form.by" required> <br/>
+                <input type="submit" value="Add Review">
+                <p>Form valid {{reviewForm.$valid}}</p>
+                <userinformation></userinformation>
+
+            </form>
+            
+        </div>
+        
+    </body>
+</html>
